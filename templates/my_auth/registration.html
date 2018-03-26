@@ -1,0 +1,20 @@
+{% extends 'my_auth/auth_base.html' %}
+{% load bootstrap3 %}
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block heading %}
+    Book Store - registration page!
+{% endblock %}
+
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>Registration</h3>
+        {% bootstrap_form user_form %}
+        <button type="submit" class="btn btn-red pull-right">register</button>
+        <a href="{% url 'home' %}" class="btn btn-danger right">Back</a>
+    </form>
+    <a href="{% url 'login' %}">Have account?</a>
+{% endblock %}

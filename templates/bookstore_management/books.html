@@ -1,0 +1,43 @@
+{% extends 'main_base.html' %}
+{% block active_management %}active{% endblock %}
+{% block nav %}
+    <a href="{% url 'create-book' %}" class="btn btn-success right"><i class="fas fa-plus"></i> Add new book</a>
+{% endblock %}
+{% block page %}
+    <a class="btn btn-block btn-warning no-radius" href="{% url 'request-log' %}">Request logging</a>
+<table class="table">
+<thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Authors</th>
+      <th scope="col">ISBN</th>
+      <th scope="col">Price</th>
+      <th scope="col">Published</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>
+
+{% for book in books %}
+
+        <tr class="link-row" onclick="window.document.location = 'books/{{ book.id }}/update'">
+            <th scope="row">{{ book.id }}</th>
+            <td>{{ book.book_title }}</td>
+            <td>{{ book.authors_info }}</td>
+            <td>{{ book.ISBN }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.publish_date.isoformat }}</td>
+            <td><img class="image-preview" src="{% if book.image %}
+                                            /media/{{ book.image }}
+                                            {% else %}
+                                            http://yellowlemon.net/files/graphics/2013/08/klipart-knigi-v-vektore.jpg
+                                            {% endif %}
+                                            " alt="image"></td>
+        </tr>
+
+{% endfor %}
+  </tbody>
+
+</table>
+{% endblock %}

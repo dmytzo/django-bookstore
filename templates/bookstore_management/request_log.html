@@ -1,0 +1,20 @@
+{% extends 'main_base.html' %}
+{% block page %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Request</th>
+                <th scope="col">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for request in requests %}
+            <tr>
+                <td>{{ request.url }}</td>
+                <td>{{ request.timestamp|date:'H:i:s Y-m-d' }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+

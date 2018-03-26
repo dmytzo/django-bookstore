@@ -1,0 +1,34 @@
+{% extends 'my_auth/auth_base.html' %}
+{% load admin_static %}
+{% block head %}
+<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/admin/RelatedObjectLookups.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/jquery.init.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/actions.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/calendar.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/admin/DateTimeShortcuts.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}"/>
+{% endblock %}
+{% block title %}
+    Book
+{% endblock %}
+{% load bootstrap3 %}
+{% block content %}
+<form method="POST" enctype="multipart/form-data" role="form">
+    {% csrf_token %}
+    <h3>
+        Book
+        {% if book_id %}
+        <a href="{% url 'delete-book' book_id %}" onclick="return confirm('Are you sure?')">
+            <i class="far fa-trash-alt pull-right"></i>
+        </a>
+    {% endif %}
+    </h3>
+    {% bootstrap_form book_form %}
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="{% url 'books-management' %}" class="btn btn-danger right">Back</a>
+</form>
+
+{% endblock %}
+

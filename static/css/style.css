@@ -1,0 +1,71 @@
+html, body {
+    height:100%;
+    position:relative;
+}
+
+.img-custom {
+    height: 250px;
+}
+
+.height-info {
+    height: 220px;
+    line-height: 17px;
+    font-size: 13px;
+}
+
+.go-bottom {
+    margin-top: 30px;
+}
+
+.height-publish {
+    height: 20px;
+    line-height: 1px;
+    font-size: 10px;
+}
+
+.custom-card {
+    margin-bottom: 30px;
+}
+
+.title {
+        line-height: 25px;
+    font-size: 16px;
+}
+
+.custom-btn {
+    background-color: #31b0d5;
+}
+
+.bg-blue {
+    background-color: #31b0d5;
+}
+
+.image-preview {
+    width: 100px;
+    height: 150px;
+}
+
+.link-row:hover {
+    background-color: #b9def0;
+}
+
+.right {
+    margin-left: 10px;
+}
+
+.no-radius {
+    border-radius: 0;
+}
+
+#wrap {
+    padding-bottom: 40px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
